@@ -8,6 +8,7 @@ function App() {
     'Feed my cats',
     'Clean the shower',
     'Random task A',
+    'Another task',
     'Another task'
   ];
   // test
@@ -16,11 +17,18 @@ function App() {
       <ul>
         {
           // I can do JS here
-          todoListItems.map((item) => {
-            return <li>{item}</li>
+          todoListItems.map((item, index) => {
+            return (<li key={index}>{item}</li>)
           })
         }
       </ul>
+      {/* events must be camel cased */}
+      <input 
+        onChange={(event) => {
+            console.log(event.target.value)
+          }
+        }
+      />
     </div>
   );
 }
