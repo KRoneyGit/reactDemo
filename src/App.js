@@ -24,6 +24,10 @@ function App() {
       </ul>
       {/* events must be camel cased */}
       <input 
+        onMouseOver={(event) => {
+          console.log('moused over!')
+        }
+      }
         onChange={(event) => {
             console.log(event.target.value)
           }
