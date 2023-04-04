@@ -2,15 +2,10 @@ import './App.css';
 import React from 'react';
 
 function App() {
-  const [listItems, setListItems] = React.useState(['Laundry']);
-  // this is basically equivalent to this....
-  /*
-  const useState = () => {
-    //logic goes here
+  const [userEnteredTodo, setUserEnteredTodo] = React.useState();
+  const [listItems, setListItems] = React.useState([]);
 
-    return [yourVariable, setYourVariable];
-  }
-  */
+  console.log(userEnteredTodo);
 
   return (
     <div>
@@ -22,14 +17,22 @@ function App() {
           })
         }
       </ul>
-      {/* events must be camel cased */}
       <input 
         onChange={(event) => {
-            setListItems([event.target.value])
+            setUserEnteredTodo(event.target.value)
             console.log(event.target.value)
           }
         }
       />
+      <button
+        onClick={() => {
+          console.log('here')
+          setListItems([
+            ...listItems,
+            userEnteredTodo
+          ])
+        }}
+      >Add</button>
     </div>
   );
 }
