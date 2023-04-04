@@ -1,34 +1,31 @@
 import './App.css';
+import React from 'react';
 
 function App() {
-  let todoListItems = [
-    'Laundry',
-    'Dishes',
-    'Sweep the floor',
-    'Feed my cats',
-    'Clean the shower',
-    'Random task A',
-    'Another task',
-    'Another task'
-  ];
-  // test
+  const [listItems, setListItems] = React.useState(['Laundry']);
+  // this is basically equivalent to this....
+  /*
+  const useState = () => {
+    //logic goes here
+
+    return [yourVariable, setYourVariable];
+  }
+  */
+
   return (
     <div>
       <ul>
         {
           // I can do JS here
-          todoListItems.map((item, index) => {
+          listItems.map((item, index) => {
             return (<li key={index}>{item}</li>)
           })
         }
       </ul>
       {/* events must be camel cased */}
       <input 
-        onMouseOver={(event) => {
-          console.log('moused over!')
-        }
-      }
         onChange={(event) => {
+            setListItems([event.target.value])
             console.log(event.target.value)
           }
         }
