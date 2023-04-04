@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import ListItem from "./ListItem";
 
 function App() {
   const [userEnteredTodo, setUserEnteredTodo] = React.useState("");
@@ -20,7 +21,7 @@ function App() {
         {
           // I can do JS here
           listItems.map((item, index) => {
-            return (<li key={index}>{item}</li>)
+            return (<ListItem key={index} item={item}/>)
           })
         }
       </ul>
