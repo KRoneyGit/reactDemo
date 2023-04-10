@@ -13,15 +13,25 @@ function App() {
     ])
     setUserEnteredTodo("")
   }
-
+  
+  const deleteItem = (index) => {
+    console.log('test');
+  }
 
   return (
     <div>
       <ul>
         {
-          // I can do JS here
           listItems.map((item, index) => {
-            return (<ListItem key={index} item={item}/>)
+              return (
+                <ListItem 
+                  key={index} 
+                  item={item}
+                  index={index} 
+                  listItems={listItems}
+                  setListItems={setListItems}
+                />
+              )
           })
         }
       </ul>
