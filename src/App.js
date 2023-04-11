@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import ListItem from "./ListItem";
+import Input from "./Input";
 
 function App() {
   const [userEnteredTodo, setUserEnteredTodo] = React.useState("");
@@ -35,9 +36,11 @@ function App() {
           })
         }
       </ul>
-      <input 
+      <Input
+        id={"input-id"}
+        name={'user-entered-todo'}
         onChange={(event) => {
-            setUserEnteredTodo(event.target.value)
+          setUserEnteredTodo(event.target.value)
         }}
         onKeyDown={(event) =>{
           if (event.key === "Enter") {
